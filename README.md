@@ -51,7 +51,7 @@ Pantalla principal: vista general del catálogo de productos por categoría.
 
 Pantalla de producto: detalles, precio, imágenes y botón de compra personalizada.
 
-![Detalle de producto](bocetoApp/bocetoProductosproducto.jpeg)
+![Detalle de producto](bocetoApp/bocetoProductos.jpeg)
 ![Detalle de producto](bocetoApp/bocetoInfoProductos.jpeg)
 
 Sección "Nosotros": historia de la marca y valores artesanales.
