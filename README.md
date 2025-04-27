@@ -37,3 +37,30 @@ Turquesa vibrante #39b496
 Tipografía:
 
 Montserrat o Poppins (sans-serif, moderna y legible)
+
+🖌️ Bocetos de la App
+
+Aquí puedes ver los primeros bocetos creados para visualizar la estructura y diseño de la app:
+
+![Pantalla principal](bocetoapp/bocetoPantallaCarga.jpeg)
+![Pantalla error](bocetoapp/bocetoPantallaCarga.jpeg)
+
+Pantalla principal: vista general del catálogo de productos por categoría.
+
+![Detalle de producto](bocetoapp/bocetoInicio.jpeg)
+
+Pantalla de producto: detalles, precio, imágenes y botón de compra personalizada.
+
+![Detalle de producto](bocetoApp/bocetoProductosproducto.jpeg)
+![Detalle de producto](bocetoApp/bocetoInfoProductos.jpeg)
+
+Sección "Nosotros": historia de la marca y valores artesanales.
+
+![Sección Nosotros](bocetoApp/bocetoNosotros.jpeg)
+
+Carrito de compras: visualización de productos agregados, cantidades y botón de pago.
+
+![Carrito de compras](bocetoApp/bocetoCarrito.jpeg)
+![Carrito de compras](bocetoApp/bocetoConfirmacionCompra.jpeg)
+
+
