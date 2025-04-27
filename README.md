@@ -43,7 +43,7 @@ Montserrat o Poppins (sans-serif, moderna y legible)
 Aquí puedes ver los primeros bocetos creados para visualizar la estructura y diseño de la app:
 
 ![Pantalla principal](bocetoapp/bocetoPantallaCarga.jpeg)
-![Pantalla error](bocetoapp/bocetoPantallaCarga.jpeg)
+![Pantalla error](bocetoapp/bocetoPantallaError.jpeg)
 
 Pantalla principal: vista general del catálogo de productos por categoría.
 
