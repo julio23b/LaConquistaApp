@@ -74,6 +74,8 @@ Aquí puedes ver los primeros bocetos creados para visualizar la estructura y di
 
 <img src="bocetoApp/bocetoConfirmacionCompra.jpeg" alt="Confirmación de compra" width="200">
 
+---
+
 ⚙️ Instalación del Proyecto
 
 📋 Requisitos previos
