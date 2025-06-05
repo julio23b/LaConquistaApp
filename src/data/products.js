@@ -2,7 +2,7 @@ export const products = [
   {
     id: 1,
     name: 'Camino de mesa',
-    price: '19.99',
+    price: '6000',
     description: 'Camino tejido a mano con materiales de calidad.',
     image: require('../../assets/productos/caminos/cmesa5.webp'),
     category: 'Caminos de mesa',
@@ -13,18 +13,18 @@ export const products = [
   {
     id: 2,
     name: 'Handira',
-    price: '29.99',
+    price: '17000',
     description: 'Alfombra tradicional marroquí con flecos decorativos.',
     image: require('../../assets/productos/alfombras/alfom1.webp'),
     category: 'Alfombras',
     sizes: ['60x120cm', '80x160cm'],
     colors: ['#ffffff', '#d8d8d8'],
-    material: 'Algodón y Lurex',
+    material: 'Algodón y Lana acrilica',
   },
   {
     id: 3,
     name: 'Trapo de piso',
-    price: '4.99',
+    price: '1700',
     description: 'Trapo resistente ideal para limpieza del hogar.',
     image: require('../../assets/productos/trapos/tpiso2.jpg'),
     category: 'Trapos/Rejillas',
@@ -35,7 +35,7 @@ export const products = [
   {
     id: 4,
     name: 'Rejilla',
-    price: '2.99',
+    price: '550',
     description: 'Rejilla absorbente y duradera para cocina o baño.',
     image: require('../../assets/productos/rejillas/rejilla1.webp'),
     category: 'Trapos/Rejillas',
@@ -46,7 +46,7 @@ export const products = [
   {
     id: 5,
     name: 'Alfombra estilo clásico',
-    price: '30.99',
+    price: '20000',
     description: 'Alfombra tejida con patrón clásico, ideal para salas.',
     image: require('../../assets/productos/alfombras/alfom15.webp'),
     category: 'Alfombras',
@@ -57,7 +57,7 @@ export const products = [
   {
     id: 6,
     name: 'Alfombra moderna',
-    price: '30.99',
+    price: '25000',
     description: 'Diseño moderno con colores neutros y suaves.',
     image: require('../../assets/productos/alfombras/alfom16.webp'),
     category: 'Alfombras',
