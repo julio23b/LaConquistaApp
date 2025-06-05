@@ -75,32 +75,45 @@ Aquí puedes ver los primeros bocetos creados para visualizar la estructura y di
 <img src="bocetoApp/bocetoConfirmacionCompra.jpeg" alt="Confirmación de compra" width="600">
 
 ⚙️ Instalación del Proyecto
+
 📋 Requisitos previos
+
 Asegúrate de tener instalado:
 
 Node.js (recomendado: v18 o superior)
 
 Expo CLI
+
 Instalar con:
+
 npm install -g expo-cli
+
 Git
+
 Un emulador o dispositivo físico con Expo Go
 
 🚀 Pasos para ejecutar la app
+
 Clona este repositorio:
+
 git clone https://github.com/tu-usuario/laconquistaapp.git
+
 cd laconquistaapp
 
 Instala las dependencias:
+
 npm install
 
 Inicia la app:
+
 npm start
 
 📦 Tecnologías y dependencias
+
 React Native + Expo
 
 Navegación:
+
 @react-navigation/native
 
 @react-navigation/native-stack
@@ -108,6 +121,7 @@ Navegación:
 @react-navigation/bottom-tabs
 
 UI y experiencia:
+
 @expo/vector-icons
 
 react-native-reanimated
@@ -116,9 +130,11 @@ react-native-gesture-handler
 
 
 Mapa:
+
 react-native-maps
 
 Carousel:
+
 react-native-reanimated-carousel
 
 
