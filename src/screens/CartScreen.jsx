@@ -61,7 +61,7 @@ export default function CartScreen() {
 
           <TouchableOpacity
             style={styles.deleteButton}
-            onPress={() => handleRemove(item.product.id, item.size, item.price)}
+            onPress={() => handleRemove(item.product.id)}
           >
             <Text style={styles.deleteText}>Eliminar</Text>
           </TouchableOpacity>
