@@ -5,7 +5,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CartScreen() {
   const { cartItems, removeFromCart, addToCart, clearCart } = useCart();
-  const [deleteQuantities] = useState({});
 
   const totalGeneral = cartItems
     .reduce((total, item) => total + item.product.price * item.quantity, 0)
