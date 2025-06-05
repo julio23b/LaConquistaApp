@@ -1,15 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Alert,
-  Linking,
-  ScrollView,
-} from 'react-native';
+import {View,Text,FlatList,StyleSheet,TouchableOpacity,Image,Alert,Linking} from 'react-native';
 import { useCart } from '../context/CartContext';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
