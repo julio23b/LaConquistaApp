@@ -32,7 +32,7 @@ const AboutScreen = () => {
         <Text style={styles.sectionTitle}>Diseñamos para ti</Text>
 
         <View style={styles.infoContainer}>
-          <Text style={styles.infoText}>📍 Ignacio Figueroa 185, Los Conquistadores, Entre Ríos, Argentina.</Text>
+          <Text style={styles.infoText}>Ignacio Figueroa 185, Los Conquistadores, Entre Ríos, Argentina.</Text>
 
           <View style={{ height: 180, width: '90%', marginBottom: 20, marginLeft: 20, marginRight: 20 }}>
             <MapView
@@ -53,7 +53,7 @@ const AboutScreen = () => {
           </View>
 
 
-          <Text style={styles.infoText}>📞 Contáctanos a través de nuestras redes:</Text>
+          <Text style={styles.infoText}>Contáctanos a través de nuestras redes:</Text>
 
           <View style={styles.redesContainer}>
             <TouchableOpacity onPress={() => Linking.openURL('https://www.facebook.com/profile.php?id=100069448742603')}>

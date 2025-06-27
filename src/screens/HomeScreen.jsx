@@ -18,7 +18,7 @@ const HomeScreen = () => {
 
   const productosFiltrados = products.filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-    (!categoriaSeleccionada || product.category === categoriaSeleccionada)
+    (!categoriaSeleccionada || product.category === categoriaSeleccionada) 
   );
 
   const nuevosProductos = [

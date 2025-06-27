@@ -7,9 +7,12 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (product, quantity, selectedSize) => {
+  const addToCart = (product, quantity, selectedSize, selectedColor) => {
     const existingIndex = cartItems.findIndex(
-      (item) => item.product.id === product.id && item.size === selectedSize
+      (item) =>
+        item.product.id === product.id &&
+        item.size === selectedSize &&
+        item.color.value === selectedColor.value
     );
 
     if (existingIndex !== -1) {
@@ -17,15 +20,24 @@ export const CartProvider = ({ children }) => {
       updatedItems[existingIndex].quantity += quantity;
       setCartItems(updatedItems);
     } else {
-      setCartItems([...cartItems, { product, quantity, size: selectedSize }]);
+      setCartItems([
+        ...cartItems,
+        {
+          product,
+          quantity,
+          size: selectedSize,
+          color: selectedColor,
+        },
+      ]);
     }
   };
 
-  const removeFromCart = (productId, size) => {
-    const updatedItems = cartItems.filter(
-      (item) => !(item.product.id === productId && item.size === size)
+  const removeFromCart = (productId, size, colorValue) => {
+    setCartItems(prevItems =>
+      prevItems.filter(item =>
+        !(item.product.id === productId && item.size === size && item.color.value === colorValue)
+      )
     );
-    setCartItems(updatedItems);
   };
 
   const clearCart = () => {

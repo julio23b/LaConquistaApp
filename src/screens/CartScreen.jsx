@@ -1,39 +1,31 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Alert,
-  Linking,
-  ScrollView,
-} from 'react-native';
+import {View,Text,FlatList,StyleSheet,TouchableOpacity,Image,Alert,Linking} from 'react-native';
 import { useCart } from '../context/CartContext';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CartScreen() {
   const { cartItems, removeFromCart, addToCart, clearCart } = useCart();
-  const [deleteQuantities] = useState({});
 
   const totalGeneral = cartItems
     .reduce((total, item) => total + item.product.price * item.quantity, 0)
-    .toFixed(2);
+    .toFixed(0);
 
-  const handleRemove = (productId) => {
-    const key = `${productId}`;
-    const qtyToRemove = deleteQuantities[key] || 1;
-
-    const cartItem = cartItems.find(item => item.product.id === productId);
+  const handleRemove = (productId, size, colorValue) => {
+    const cartItem = cartItems.find(
+      (item) =>
+        item.product.id === productId &&
+        item.size === size &&
+        item.color?.value === colorValue
+    );
     if (!cartItem) return;
 
-    if (qtyToRemove >= cartItem.quantity) {
-      removeFromCart(productId);
+    if (cartItem.quantity <= 1) {
+      removeFromCart(productId, size, colorValue);
     } else {
-      addToCart(cartItem.product, -qtyToRemove);
+      addToCart(cartItem.product, -1, size, cartItem.color);
     }
   };
+
 
   const handleOrder = () => {
     if (cartItems.length === 0) {
@@ -43,9 +35,9 @@ export default function CartScreen() {
 
     let message = 'Hola, quiero hacer un pedido:\n\n';
     cartItems.forEach(item => {
-      message += `- ${item.product.name} | Medida: ${item.size} | Cantidad: ${item.quantity} | Precio unitario: $${item.product.price} | Total: $${(item.product.price * item.quantity).toFixed(2)}\n`;
+      message += `- ${item.product.name} | Medida: ${item.size} | Color: ${item.color?.name} | Cantidad: ${item.quantity}\n`;
     });
-    message += `\nTotal general: $${totalGeneral}\n\nGracias!`;
+    message += `\nGracias!`;
 
     const url = `https://wa.me/+543458430884?text=${encodeURIComponent(message)}`;
     Linking.openURL(url)
@@ -58,27 +50,26 @@ export default function CartScreen() {
       });
   };
 
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.itemContainer}>
-        <Image source={item.product.image} style={styles.image} />
-        <View style={{ flex: 1, marginLeft: 12 }}>
-          <Text style={styles.name}>{item.product.name}</Text>
-          <Text style={styles.text}>Medida: {item.size}</Text>
-          <Text style={styles.text}>Precio unitario: ${item.product.price}</Text>
-          <Text style={styles.text}>Cantidad: {item.quantity}</Text>
-          <Text style={styles.text}>Total: ${(item.product.price * item.quantity).toFixed(2)}</Text>
+  const renderItem = ({ item }) => (
+    <View style={styles.itemContainer}>
+      <Image source={item.color?.image || item.product.image} style={styles.image} />
+      <View style={{ flex: 1, marginLeft: 12 }}>
+        <Text style={styles.name}>{item.product.name}</Text>
+        <Text style={styles.text}>Medida: {item.size}</Text>
+        <Text style={styles.text}>Color: {item.color?.name}</Text>
+        <Text style={styles.text}>Precio unitario: ${item.product.price}</Text>
+        <Text style={styles.text}>Cantidad: {item.quantity}</Text>
+        <Text style={styles.text}>Total: ${(item.product.price * item.quantity).toFixed(0)}</Text>
 
-          <TouchableOpacity
-            style={styles.deleteButton}
-            onPress={() => handleRemove(item.product.id, item.size, item.price)}
-          >
-            <Text style={styles.deleteText}>Eliminar</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={() => handleRemove(item.product.id, item.size, item.color?.value)}
+        >
+          <Text style={styles.deleteText}>Eliminar</Text>
+        </TouchableOpacity>
       </View>
-    );
-  };
+    </View>
+  );
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }} edges={['top', 'left', 'right']}>
@@ -87,12 +78,8 @@ export default function CartScreen() {
         keyExtractor={(item, index) => `${item.product?.id}-${item.size}-${index}`}
         renderItem={renderItem}
         contentContainerStyle={styles.scrollContainer}
-        ListHeaderComponent={
-          <Text style={styles.title}>Carrito</Text>
-        }
-        ListEmptyComponent={
-          <Text style={styles.empty}>Tu carrito está vacío.</Text>
-        }
+        ListHeaderComponent={<Text style={styles.title}>Carrito</Text>}
+        ListEmptyComponent={<Text style={styles.empty}>Tu carrito está vacío.</Text>}
         ListFooterComponent={
           cartItems.length > 0 && (
             <>
@@ -105,7 +92,6 @@ export default function CartScreen() {
         }
       />
     </SafeAreaView>
-
   );
 }
 

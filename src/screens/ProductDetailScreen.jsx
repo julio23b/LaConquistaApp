@@ -21,11 +21,14 @@ export default function ProductDetailScreen() {
 
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [displayImage, setDisplayImage] = useState(product.colors[0].image);
+
 
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Image source={product.image} style={styles.image} />
+        <Image source={displayImage} style={styles.image} />
         <Text style={styles.name}>{product.name}</Text>
         <Text style={styles.price}>${product.price}</Text>
 
@@ -55,9 +58,20 @@ export default function ProductDetailScreen() {
         <Text style={styles.label}>Colores:</Text>
         <View style={styles.colorContainer}>
           {product.colors.map((color, index) => (
-            <View
+            <TouchableOpacity
               key={index}
-              style={[styles.colorCircle, { backgroundColor: color }]}
+              onPress={() => {
+                setSelectedColor(color);
+                setDisplayImage(color.image);
+              }}
+              style={[
+                styles.colorCircle,
+                {
+                  backgroundColor: color.value,
+                  borderWidth: selectedColor.value === color.value ? 2 : 1,
+                  borderColor: selectedColor.value === color.value ? '#175560' : '#ccc',
+                },
+              ]}
             />
           ))}
         </View>
@@ -82,7 +96,7 @@ export default function ProductDetailScreen() {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.cartButton} onPress={()=>{addToCart(product,quantity,selectedSize);}}>
+        <TouchableOpacity style={styles.cartButton} onPress={()=>{addToCart(product,quantity,selectedSize,selectedColor);}}>
           <Text style={styles.cartButtonText}>Agregar al carrito</Text>
         </TouchableOpacity>
       </View>
