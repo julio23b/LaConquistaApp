@@ -1,18 +1,12 @@
 import React from 'react';
-import { SafeAreaView, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const SplashScreen = ({ navigation }) => {
-  const handleEnter = () => {
-    navigation.replace('MainTabs'); 
-  };
-
   return (
     <SafeAreaView style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={require('../../assets/logo/logoLaConquista.png')}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleEnter}>
+      <Text style={styles.title}>Radar Comercial Once</Text>
+      <Text style={styles.subtitle}>Descubrí comercios, categorías y ubicaciones en un solo lugar.</Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.replace('MainTabs')}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -29,10 +23,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
   },
-  logo: {
-    width: 365,
-    height: 365,
-    marginBottom: 60,
+  title: {
+    fontSize: 32,
+    fontWeight: '700',
+    color: '#175560',
+    textAlign: 'center',
+  },
+  subtitle: {
+    marginTop: 12,
+    textAlign: 'center',
+    color: '#526066',
+    marginBottom: 36,
   },
   button: {
     backgroundColor: '#175560',
@@ -40,7 +41,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     borderRadius: 10,
   },
-
   buttonText: {
     color: '#fff',
     fontSize: 18,

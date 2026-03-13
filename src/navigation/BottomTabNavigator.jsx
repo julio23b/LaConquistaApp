@@ -2,9 +2,10 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
-import CartScreen from '../screens/CartScreen';
-import AboutScreen from '../screens/AboutScreen';
-import ProductStackNavigator from './ProductStackNavigator';
+import SearchScreen from '../screens/SearchScreen';
+import MapScreen from '../screens/MapScreen';
+import FavoritesScreen from '../screens/FavoritesScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,29 +14,27 @@ const BottomTabNavigator = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarShowLabel: false,
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'Product') {
-            iconName = focused ? 'bag' : 'bag-outline';
-          } else if (route.name === 'Cart') {
-            iconName = focused ? 'cart' : 'cart-outline';
-          } else if (route.name === 'About') {
-            iconName = focused ? 'information-circle' : 'information-circle-outline';
-          }
-
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
+        tabBarShowLabel: true,
         tabBarActiveTintColor: '#175560',
         tabBarInactiveTintColor: '#000',
+        tabBarIcon: ({ focused, color, size }) => {
+          const icons = {
+            Home: focused ? 'home' : 'home-outline',
+            Buscar: focused ? 'search' : 'search-outline',
+            Mapa: focused ? 'map' : 'map-outline',
+            Favoritos: focused ? 'star' : 'star-outline',
+            Perfil: focused ? 'person' : 'person-outline',
+          };
+
+          return <Ionicons name={icons[route.name]} size={size} color={color} />;
+        },
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Product" component={ProductStackNavigator} />  
-      <Tab.Screen name="Cart" component={CartScreen} />
-      <Tab.Screen name="About" component={AboutScreen} />
+      <Tab.Screen name="Buscar" component={SearchScreen} />
+      <Tab.Screen name="Mapa" component={MapScreen} />
+      <Tab.Screen name="Favoritos" component={FavoritesScreen} />
+      <Tab.Screen name="Perfil" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };
