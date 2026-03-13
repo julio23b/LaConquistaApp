@@ -1,13 +1,19 @@
 import React from 'react';
 import { SafeAreaView, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useAuth } from '../context/AuthContext';
 
 const SplashScreen = ({ navigation }) => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Radar Comercial Once</Text>
       <Text style={styles.subtitle}>Descubrí comercios, categorías y ubicaciones en un solo lugar.</Text>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.replace('MainTabs')}>
-        <Text style={styles.buttonText}>Entrar</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.replace(isAuthenticated ? 'MainTabs' : 'Login')}
+      >
+        <Text style={styles.buttonText}>{isAuthenticated ? 'Entrar' : 'Comenzar'}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

@@ -9,6 +9,10 @@ Aplicación móvil para descubrir comercios en Once.
 - Consultar por WhatsApp.
 - Guardar favoritos.
 - Navegar hacia el local con Google Maps.
+- Registro e inicio de sesión con email (Supabase Auth).
+- Inicio con Google (OAuth en Supabase).
+- Recuperación de contraseña por email.
+- Panel admin para aprobar o rechazar comercios pendientes.
 
 ## Stack
 - React Native
@@ -16,6 +20,12 @@ Aplicación móvil para descubrir comercios en Once.
 - Supabase
 - Algolia
 - Google Maps
+
+## Variables de entorno
+Configurar en `.env`:
+
+- `EXPO_PUBLIC_SUPABASE_URL`
+- `EXPO_PUBLIC_SUPABASE_ANON_KEY`
 
 ## Navegación principal
 - Home
@@ -25,4 +35,4 @@ Aplicación móvil para descubrir comercios en Once.
 - Perfil
 
 ## Flujo de usuario
-Abrir app → Explorar categorías → Buscar comercio → Ver perfil del comercio → Consultar por WhatsApp → Ir al local.
+Abrir app → Login/Registro → Explorar categorías → Buscar comercio → Ver perfil del comercio → Consultar por WhatsApp → Ir al local.
